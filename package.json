@@ -1,0 +1,28 @@
+{
+  "name": "mern-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svasyanovych/mern-project.git"
+  },
+  "author": "Svitlana Vasianovych",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svasyanovych/mern-project/issues"
+  },
+  "homepage": "https://github.com/svasyanovych/mern-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.10"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.3"
+  }
+}
