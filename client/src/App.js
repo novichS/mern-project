@@ -9,7 +9,7 @@ function App() {
   const { token, login, logout, userId } = useAuth();
   const IsAuthenticated = !!token
   const routes = useRoutes(IsAuthenticated);
-  
+
   return (
     <AuthContext.Provider value={{
       token, login, logout, userId, IsAuthenticated
