@@ -12,10 +12,14 @@ export const AuthPage = () => {
         password: ''
     })
 
-    useEffect (() => {
+    useEffect(() => {
         message(error)
         clearError()
     }, [error, message, clearError])
+
+    useEffect(() => {
+        window.M.updateTextFields()
+    }, [])
 
     const changeHandler = event => {
         setForm({ ...form, [event.target.name]: event.target.value })
@@ -23,16 +27,16 @@ export const AuthPage = () => {
 
     const registerHandler = async () => {
         try {
-            const data = await request('/api/auth/register', 'POST', {...form})
+            const data = await request('/api/auth/register', 'POST', { ...form })
             message(data.message)
-        } catch (e) {}
+        } catch (e) { }
     }
 
     const loginHandler = async () => {
         try {
-            const data = await request('/api/auth/login', 'POST', {...form})
+            const data = await request('/api/auth/login', 'POST', { ...form })
             auth.login(data.token, data.userId)
-        } catch (e) {}
+        } catch (e) { }
     }
 
     return (
@@ -50,6 +54,7 @@ export const AuthPage = () => {
                                     type="text"
                                     name="email"
                                     className="purple-input"
+                                    value={form.email}
                                     onChange={changeHandler}
                                 />
                                 <label htmlFor="email">Email</label>
@@ -61,6 +66,7 @@ export const AuthPage = () => {
                                     type="password"
                                     name="password"
                                     className="purple-input"
+                                    value={form.password}
                                     onChange={changeHandler}
                                 />
                                 <label htmlFor="password">Password</label>
@@ -69,19 +75,19 @@ export const AuthPage = () => {
                     </div>
                     <div className="card-action">
                         <button
-                        className="btn yellow darken-4"
-                        style={{ marginRight: 10 }}
-                        onClick={loginHandler}
-                        disabled={loading}
+                            className="btn yellow darken-4"
+                            style={{ marginRight: 10 }}
+                            onClick={loginHandler}
+                            disabled={loading}
                         >
                             Log in
                         </button>
                         <button
-                        className="btn grey lighten-1 black-text"
-                        onClick={registerHandler}
-                        disabled={loading}
+                            className="btn grey lighten-1 black-text"
+                            onClick={registerHandler}
+                            disabled={loading}
                         >
-                        Sign up
+                            Sign up
                         </button>
                     </div>
                 </div>
