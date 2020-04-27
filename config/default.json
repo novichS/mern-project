@@ -1,5 +1,6 @@
 {
     "port": 4000,
     "jwtSecret": "secret jwt mern",
-    "mongoUri": "mongodb+srv://svitlana:4321ytrewq@cluster0-gxl4f.azure.mongodb.net/app?retryWrites=true&w=majority"
+    "mongoUri": "mongodb+srv://svitlana:4321ytrewq@cluster0-gxl4f.azure.mongodb.net/app?retryWrites=true&w=majority",
+    "baseUrl": "http://localhost:4000"
 }
